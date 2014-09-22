@@ -7,42 +7,42 @@ Example :
 
 Class without Metadata : 
 
-namespace Domain
-{
-  public class Customer
-  {
-    private ICustomerDAO _customerDAO;
-
-    public Customer(ICustomerDAO customerDAO)
+    namespace Domain
     {
-      _customerDAO = customerDAO;
+      public class Customer
+      {
+        private ICustomerDAO _customerDAO;
+    
+        public Customer(ICustomerDAO customerDAO)
+        {
+          _customerDAO = customerDAO;
+        }
+    
+        public IEnumerable<object> GetCustomerById(int id)
+        {
+          return _customerDAO.GetCustomerById(id);
+        }
+      }
     }
-
-    public IEnumerable<object> GetCustomerById(int id)
-    {
-      return _customerDAO.GetCustomerById(id);
-    }
-  }
-}
 
 Class with Metadata : 
 
-[Metadata(Layer = Layers.BusinessLayer, Description = "The Business Layer houses all classes that contain business logic.")]
-namespace Domain
-{
-  [Metadata(ClassType = ClassType.Business, Description = "Classes that contain Business Logic.")]
-  public class Customer
-  {
-    private ICustomerDAO _customerDAO;
-
-    public Customer(ICustomerDAO customerDAO)
+    [Metadata(Layer = Layers.BusinessLayer, Description = "The Business Layer houses all classes that contain business logic.")]
+    namespace Domain
     {
-      _customerDAO = customerDAO;
+      [Metadata(ClassType = ClassType.Business, Description = "Classes that contain Business Logic.")]
+      public class Customer
+      {
+        private ICustomerDAO _customerDAO;
+    
+        public Customer(ICustomerDAO customerDAO)
+        {
+          _customerDAO = customerDAO;
+        }
+    
+        public IEnumerable<object> GetCustomerById(int id)
+        {
+          return _customerDAO.GetCustomerById(id);
+        }
+      }
     }
-
-    public IEnumerable<object> GetCustomerById(int id)
-    {
-      return _customerDAO.GetCustomerById(id);
-    }
-  }
-}
